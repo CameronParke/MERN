@@ -80,18 +80,18 @@ eat(); // we invoke the eat() function which logs the scoped food that is assign
 // console.log(food2);
 
 // AFTER HOISTING BY THE INTERPRETER
-// var mean; // mean is a declaration, gets hoisted to the top
-// mean(); // mean is not a function. The variable mean got hoisted to the top and we tried to invoke it before we assigned a function to it
-// console.log(food2); // food is undefined outside of the scope of the function
-// mean = function(){ // mean is assigned the value of the function
-// var food2; // food is declared within function() and gets hoisted to the top
-// food2 = 'chicken' // here we assign a value to our function scoped food
-// console.log(food2); // we log food as chicken
-// food2 = 'fish'; // here we assign another value to our function scoped food 
-// console.log(food2); // we log food as fish
-// }
-// console.log(food2) // food is undefined outside of the scope of the function
-// // Nothing runs due to the mean variable being hoisted to the top and the mean function being invoked before it was assigned
+var mean; // mean is a declaration, gets hoisted to the top
+mean(); // mean is not a function. The variable mean got hoisted to the top and we tried to invoke it before we assigned a function to it
+console.log(food2); // food is undefined outside of the scope of the function
+mean = function(){ // mean is assigned the value of the function
+var food2; // food is declared within function() and gets hoisted to the top
+food2 = 'chicken' // here we assign a value to our function scoped food
+console.log(food2); // we log food as chicken
+food2 = 'fish'; // here we assign another value to our function scoped food 
+console.log(food2); // we log food as fish
+}
+console.log(food2) // food is undefined outside of the scope of the function
+// Nothing runs due to the mean variable being hoisted to the top and the mean function being invoked before it was assigned
 
 
 
