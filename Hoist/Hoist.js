@@ -148,22 +148,34 @@ learn(); // invokes the learn() function and logs "seattle" and "burbank"
 console.log(dojo); // we log the global dojo "san jose" again
 
 
-// 8 
-console.log(makeDojo("Chicago", 65));
-console.log(makeDojo("Berkeley", 0));
-function makeDojo(name, students){
-    const dojo = {};
-    dojo.name = name;
-    dojo.students = students;
-    if(dojo.students > 50){
-        dojo.hiring = true;
-    }
-    else if(dojo.students <= 0){
-        dojo = "closed for now";
-    }
-    return dojo;
-}
+// 8 - Bonus ES6: const
+// console.log(makeDojo("Chicago", 65));
+// console.log(makeDojo("Berkeley", 0));
+// function makeDojo(name, students) {
+//     const dojo = {};
+//     dojo.name = name;
+//     dojo.students = students;
+//     if (dojo.students > 50) {
+//         dojo.hiring = true;
+//     }
+//     else if (dojo.students <= 0) {
+//         dojo = "closed for now";
+//     }
+//     return dojo;
+// }
 
 // AFTER HOISTING BY THE INTERPRETER
-// function makeDojo(name, students){ // the makeDojo(name, students) function gets hoisted to the top
-// 
+function makeDojo(name, students) { // the makeDojo(name, students) function gets hoisted to the top
+    const dojo = {}; // here we initialize our const variable dojo as an empty {} 
+    dojo.name = name; // here we take the name that will be taken in as an argument and assign that value as the dojo's name
+    dojo.students = students; // here we take the number of students that will be taken in as am argument and assign that value as the dojo's number of students
+    if (dojo.students > 50) { // if the argument for students in the makeDojo function is greater than 50 proceed to the next line, otherwise proceed to the else if
+        dojo.hiring = true; // if the argument for students in makeDojo function is > 50 then dojo.hiring will equal true, the dojo will be hiring, creates new Key hiring and Value true
+    }
+    else if (dojo.students <= 0) { // if the argument for students in the makeDojo function is <= 0 proceed with the next line
+        dojo = "closed for now"; // if the argument for students in the makeDojo function is <= 0 then dojo is assigned a string value "closed for now"
+    }
+    return dojo // we return the dojo and get true or "closed for now" depending on whether the argument for students was greater than 50 or less than or equal to 0
+}
+console.log(makeDojo("Chicago", 65)); // will return the dojo object {name: 'Chicago', students: 65, hiring: true}
+console.log(makeDojo("Berkeley", 0)); // will return a TypeError because dojo is a const variable and is immutable and therefore cannot be assigned a value like "closed for now"
